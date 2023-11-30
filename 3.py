@@ -7,6 +7,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import VotingClassifier
+from graphviz import Source
 
 if __name__ == '__main__':
     '''
@@ -37,6 +38,7 @@ if __name__ == '__main__':
     tree_clf = DecisionTreeClassifier(max_depth=2)
     tree_clf.fit(X, Y)
 
+
     f = open("./iris_tree.dot", 'w')
     export_graphviz(tree_clf,
                     out_file=f,
@@ -45,3 +47,7 @@ if __name__ == '__main__':
                     rounded=True,
                     filled=True
                     )
+    f.close()
+
+    source = Source.from_file("./iris_tree.dot")
+    source.view()
