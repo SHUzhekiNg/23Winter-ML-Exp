@@ -11,12 +11,14 @@ X = iris.data
 y = iris.target
 
 # 只选择两个类别（setosa和versicolor）X只取前两列
-X = X[y != 2][:,:2]
-y = y[y != 2]
-
-# 将类别转换为0和1
+# X = X[y != 2]
+# y = y[y != 2]
 y[y == 0] = -1  # 将setosa类别设为-1
-y[y == 1] = 1   # 将versicolor类别设为1
+y[y == 1] = 0   # 将versicolor类别设为1
+y[y == 2] = 1   # 将versicolor类别设为1
+# # 将类别转换为0和1
+# y[y == 0] = -1  # 将setosa类别设为-1
+# y[y == 1] = 1   # 将versicolor类别设为1
 
 # 划分数据集
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=42) # 
