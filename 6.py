@@ -8,7 +8,7 @@ iris = datasets.load_iris()
 X = iris.data
 
 # 创建K均值模型，假设有3个簇（因为Iris数据集有3个类别）
-kmeans = KMeans(n_clusters=2, random_state=42)
+kmeans = KMeans(n_clusters=3, random_state=42)
 
 # 拟合模型
 kmeans.fit(X)
